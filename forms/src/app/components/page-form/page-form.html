@@ -1,0 +1,170 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <div class="card form-card">
+        <div class="form-header">
+          <i class="bi bi-mortarboard-fill fs-1"></i>
+          <h2 class="mt-2 mb-1">Formulario de inscripción</h2>
+          <p class="mb-0 opacity-75">Rellena tus datos para empezar</p>
+        </div>
+
+        <div class="card-body p-4 p-md-5">
+          <form [formGroup]="form">
+            <div class="row g-4">
+              <!-- Nombre -->
+              <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person"></i></span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombre"
+                    formControlName="nombre"
+                    [class.is-invalid]="isInvalidField('nombre')"
+                    placeholder="Tu nombre"
+                  />
+                  @if (isInvalidField('nombre')) {
+                    @if (mostrarError('nombre', 'required')) {
+                      <div class="invalid-feedback">El nombre es obligatorio</div>
+                    }
+                    @if (mostrarError('nombre', 'minlength')) {
+                      <div class="invalid-feedback">Mínimo 2 caracteres</div>
+                    }
+                    @if (mostrarError('nombre', 'pattern')) {
+                      <div class="invalid-feedback">Solo letras y espacios</div>
+                    }
+                    @if (mostrarError('nombre', 'maxlength')) {
+                      <div class="invalid-feedback">Máximo 30 caracteres</div>
+                    }
+                  }
+                </div>
+              </div>
+
+              <!-- Apellidos -->
+              <div class="col-md-6">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="apellidos"
+                    [class.is-invalid]="isInvalidField('apellidos')"
+                    formControlName="apellidos"
+                    placeholder="Tus apellidos"
+                  />
+                  @if (isInvalidField('apellidos')) {
+                    @if (mostrarError('apellidos', 'required')) {
+                      <div class="invalid-feedback">El nombre es obligatorio</div>
+                    }
+                    @if (mostrarError('apellidos', 'minlength')) {
+                      <div class="invalid-feedback">Mínimo 2 caracteres</div>
+                    }
+                    @if (mostrarError('apellidos', 'pattern')) {
+                      <div class="invalid-feedback">Solo letras y espacios</div>
+                    }
+                    @if (mostrarError('apellidos', 'maxlength')) {
+                      <div class="invalid-feedback">Máximo 30 caracteres</div>
+                    }
+                  }
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    [class.is-invalid]="isInvalidField('email')"
+                    formControlName="email"
+                    placeholder="email@email.com"
+                  />
+                  @if (isInvalidField('email')) {
+                    @if (mostrarError('email', 'required')) {
+                      <div class="invalid-feedback">El email es obligatorio</div>
+                    }
+                    @if (mostrarError('email', 'email')) {
+                      <div class="invalid-feedback">La sintaxis tiene que ser la de un email</div>
+                    }
+                  }
+                </div>
+              </div>
+
+              <!-- Teléfono -->
+              <div class="col-md-6">
+                <label for="telefono" class="form-label">Número de contacto</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="telefono"
+                    [class.is-invalid]="isInvalidField('telefono')"
+                    formControlName="telefono"
+                    placeholder="Número de contacto"
+                  />
+                  @if (isInvalidField('telefono')) {
+                    @if (mostrarError('telefono', 'required')) {
+                      <div class="invalid-feedback">El telefono es obligatorio</div>
+                    }
+                    @if (mostrarError('telefono', 'pattern')) {
+                      <div class="invalid-feedback">Introduce un teléfono español válido</div>
+                    }
+                  }
+                </div>
+              </div>
+
+              <!-- NombreMasota -->
+              <div class="col-md-6">
+                <label for="nombreMascota" class="form-label">Nombre</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-person"></i></span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombreMascota"
+                    formControlName="nombreMascota"
+                    [class.is-invalid]="isInvalidField('nombreMascota')"
+                    placeholder="Tu nombre"
+                  />
+                  @if (isInvalidField('nombre')) {
+                    @if (mostrarError('nombre', 'required')) {
+                      <div class="invalid-feedback">El nombre es obligatorio</div>
+                    }
+                    @if (mostrarError('nombre', 'minlength')) {
+                      <div class="invalid-feedback">Mínimo 2 caracteres</div>
+                    }
+                    @if (mostrarError('nombre', 'pattern')) {
+                      <div class="invalid-feedback">Solo letras y espacios</div>
+                    }
+                    @if (mostrarError('nombre', 'maxlength')) {
+                      <div class="invalid-feedback">Máximo 30 caracteres</div>
+                    }
+                  }
+                </div>
+              </div>
+
+              <div class="col-12"></div>
+
+              <div class="col-md-6"></div>
+
+              <div class="col-md-6"></div>
+
+              <!-- Botón -->
+              <div class="col-12 d-grid mt-2">
+                <button type="submit" class="btn btn-morado btn-lg">
+                  <i class="bi bi-send me-2"></i>Enviar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
